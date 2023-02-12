@@ -1,0 +1,26 @@
+dependencies:
+    # - <organization/repo>@<version>
+      # https://docs.chain.link/data-feeds/price-feeds/addresses#Ethereum%20Mainnet used for ethereum mainnet addressß
+      # brownie networks add development mainnet-fork-dev cmd=ganache-cli host=http://127.0.0.1 fork=https://eth-mainnet.g.alchemy.com/v2/9AWY1OvyCs51BCLd3lgRUfGy383OiiG4 accounts=10 mnemonic=brownie port=8545
+  - smartcontractkit/chainlink-brownie-contracts@1.2.0
+compiler:
+  solc:
+    remappings: 
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.2.0'
+
+networks :
+  goerli :
+    eth_usd_price_feed: '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e'
+    verify: True
+  mainnet-fork-dev :
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    verify: False
+  development:
+    verify : False
+  ganache-local:
+    verify: False
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+
